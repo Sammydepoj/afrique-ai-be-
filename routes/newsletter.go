@@ -7,6 +7,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+func serverCheck(context *gin.Context) {
+	context.JSON(http.StatusOK, gin.H{"message": "Server is up and running!"})
+}
+
 func saveNewsLetterEmail(context *gin.Context) {
 	var users models.UserEmails
 	err := context.ShouldBindJSON(&users)
